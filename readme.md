@@ -24,18 +24,22 @@ git submodule add https://github.com/Laradock/laradock.git
 
 ## Laradockの初期設定
 
-.envファイルを作成
+projectディレクトリ直下にsrcディレクトリを作成
 
 ```bash:/project
 mkdir src
-cd laradock
 ```
 
+laradockディレクトリ内に.envファイルを作成
+
+```bash:/project
+cd laradock
+```
 ```bash:/project/laradock
 cp env-example .env
 ```
 
-設定ファイル(.env)のAPP_CODE_PATH_HOSTの部分を書き換える。
+先程作成した.envファイル(設定ファイル)のAPP_CODE_PATH_HOSTの部分を書き換える。
 これでproject/srcの下の階層がコードを格納するディレクトリとなる。
 
 ```bash:/project/laradock/.env
@@ -44,6 +48,8 @@ cp env-example .env
 ```
 
 ## Dockerでworkspaceを立ち上げる
+
+laradockディレクトリ直下で以下のコマンドを実行
 
 ```bash:/project/laradock
 $ docker-compose up -d workspace nginx
